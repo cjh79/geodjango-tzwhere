@@ -41,9 +41,9 @@ def feature_collection_polygons(featureCollection):
 
     """
     for feature in featureCollection['features']:
-        tzname = feature['properties']['TZID']
         if feature['geometry']['type'] == 'Polygon':
             poly = GEOSGeometry(json.dumps(feature['geometry']))
+            tzname = feature['properties']['TZID']
             yield (tzname, poly)
 
 
